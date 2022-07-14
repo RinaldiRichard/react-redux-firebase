@@ -3,11 +3,11 @@ import "firebase/compat/auth";
 
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: "react-firebase-redux-b1535.firebaseapp.com",
-  projectId: "react-firebase-redux-b1535",
-  storageBucket: "react-firebase-redux-b1535.appspot.com",
-  messagingSenderId: "247185200652",
-  appId: "1:247185200652:web:95891fff8bf768f601c029",
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId:  process.env.REACT_APP_PROJECT_ID ,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId:  process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId:  process.env.REACT_APP_APP_ID,
 });
 
 export const auth = app.auth();
