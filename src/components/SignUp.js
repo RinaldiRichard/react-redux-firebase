@@ -21,10 +21,11 @@ const SignUp = () => {
             displayName,
           });
           console.log(userAuth);
-          window.location.reload()
+          window.location.reload();
         });
     } catch (error) {
       console.log(error.message);
+      lengh
     }
   };
 
@@ -52,6 +53,7 @@ const SignUp = () => {
             ref={registerPassword}
           />
           <input type="submit" value="Valider inscription" />
+          
         </form>
       </div>
     </div>

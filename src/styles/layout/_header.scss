@@ -34,6 +34,8 @@
     .signup-container,
     .login-container {
       min-height: 200px;
+      display: flex;
+      flex-direction: column;
       @include verticalCenter;
 
       h3 {
