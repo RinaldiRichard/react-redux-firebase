@@ -1,8 +1,10 @@
+import { doc, updateDoc } from "firebase/firestore";
 import React, { useState } from "react";
+import { db } from "../utils/firebase.config";
 
 const Post = ({ post, user }) => {
   const [edit, setEdit] = useState(false);
-  const { editMess, setEditMess } = useState(null);
+  const [editMess, setEditMess] = useState(null);
 
   const dateFormater = (date) => {
     let days = Math.floor((new Date() - new Date(date)) / (1000 * 3600 * 24));
@@ -12,6 +14,13 @@ const Post = ({ post, user }) => {
       return "il y à 1 jour";
     } else {
       return `il y à ${days} jours`;
+    }
+  };
+
+  const handleEdit = () => {
+    setEdit(false);
+    if (editMess) {
+      updateDoc(doc(db, "posts", post.id), { message: editMess });
     }
   };
 
@@ -34,7 +43,20 @@ const Post = ({ post, user }) => {
           </div>
         )}
       </div>
-      {edit ? <textarea></textarea> : <p>{post.message} </p>}
+      {edit ? (
+        <>
+          <textarea
+            autoFocus
+            defaultValue={editMess ? editMess : post.message}
+            onChange={(e) => setEditMess(e.target.value)}
+          ></textarea>
+          <button className="edit-btn" onClick={() => handleEdit()}>
+            Modifier message
+          </button>
+        </>
+      ) : (
+        <p>{editMess ? editMess : post.message} </p>
+      )}
     </div>
   );
 };

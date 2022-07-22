@@ -46,7 +46,7 @@ const App = () => {
       <div className="posts-container">
         {posts.length > 0 && (
           posts
-          .sort((a,b)=> b.date - a.date)
+          .sort((a,b)=> b.date - a.date) // Pour trier les post selon le timestamp (croissant)
           .map((post)=> 
           <Post post={post} key={post.id} user={user} />
           )
