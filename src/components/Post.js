@@ -1,6 +1,8 @@
 import { doc, updateDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { db } from "../utils/firebase.config";
+import CommentPost from "./CommentPost";
+import Delete from "./Delete";
 
 const Post = ({ post, user }) => {
   const [edit, setEdit] = useState(false);
@@ -39,7 +41,7 @@ const Post = ({ post, user }) => {
             <span onClick={() => setEdit(!edit)}>
               <i className="fa-solid fa-pen-to-square"></i>
             </span>
-            <span>DELETE</span>
+            <Delete postId={post.id} />
           </div>
         )}
       </div>
@@ -57,6 +59,7 @@ const Post = ({ post, user }) => {
       ) : (
         <p>{editMess ? editMess : post.message} </p>
       )}
+      <CommentPost post={post} />
     </div>
   );
 };
