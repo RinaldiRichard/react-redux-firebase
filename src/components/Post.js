@@ -10,17 +10,19 @@ const Post = ({ post, user }) => {
 
   const dateFormater = (date) => {
     let days = Math.floor((new Date() - new Date(date)) / (1000 * 3600 * 24));
+
     if (days === 0) {
       return "aujourd'hui";
     } else if (days === 1) {
-      return "il y à 1 jour";
+      return "il y a 1 jour";
     } else {
-      return `il y à ${days} jours`;
+      return "il y a " + days + " jours";
     }
   };
 
   const handleEdit = () => {
     setEdit(false);
+
     if (editMess) {
       updateDoc(doc(db, "posts", post.id), { message: editMess });
     }
@@ -34,7 +36,7 @@ const Post = ({ post, user }) => {
             <span>{post.author[0]}</span>
             <h2>{post.author}</h2>
           </div>
-          <h5>Posté {dateFormater(post.date)} </h5>
+          <h5>Posté {dateFormater(post.date)}</h5>
         </div>
         {post.authorId === user?.uid && (
           <div className="right-part">
@@ -57,7 +59,7 @@ const Post = ({ post, user }) => {
           </button>
         </>
       ) : (
-        <p>{editMess ? editMess : post.message} </p>
+        <p>{editMess ? editMess : post.message}</p>
       )}
       <CommentPost post={post} />
     </div>
