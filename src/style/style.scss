@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
+
+$color1: rgb(211, 27, 57);
+$black1: rgb(28, 28, 28);
+$black2: rgb(49, 49, 49);
+$black3: rgb(70, 70, 70);
+$white: rgb(207, 207, 207);
+$grey: rgb(95, 95, 95);
+$shadow: 0 3px 20px rgba(0, 0, 0, 0.356);
+
+@mixin verticalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
+}
+body {
+  background-color: $black2;
+  color: $white;
+}
+
+button,
+input[type="submit"] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  background: $color1;
+  transition: 0.2s;
+
+  &:hover {
+    filter: brightness(80%);
+    transform: translateX(2px);
+  }
+}
+
+input,
+textarea {
+  border-radius: 7px;
+  border: none;
+  resize: none;
+  margin: 5px;
+  padding: 8px;
+  background: $white;
+}
+
+.app-header {
+  background: $black1;
+  width: 60%;
+  min-width: 300px;
+  max-width: 650px;
+  margin: 40px auto 30px;
+  text-align: center;
+  position: relative;
+  padding: 20px 20px;
+  border-radius: 0 20px 20px 20px;
+  min-height: 250px;
+  box-shadow: $shadow;
+
+  .connect-modal {
+    height: 100%;
+
+    .header-btn {
+      position: absolute;
+      left: 0;
+      top: -24px;
+
+      button {
+        color: $white;
+        background: $black1;
+        padding: 4px 14px;
+        border-radius: 10px 10px 0 0;
+        transition: 0.2s;
+
+        &:hover {
+          filter: brightness(135%);
+        }
+      }
+    }
+    .signup-container,
+    .login-container {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      @include verticalCenter;
+
+      h3 {
+        margin-bottom: 8px;
+      }
+
+      form {
+        display: grid;
+
+        input {
+          text-align: center;
+          padding: 8px 10px;
+          transition: 0.2s;
+        }
+      }
+    }
+  }
+  .user-infos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    user-select: none;
+
+    span {
+      background: $color1;
+      height: 30px;
+      width: 30px;
+      @include verticalCenter;
+      border-radius: 150px;
+      text-transform: uppercase;
+      box-shadow: $shadow;
+      transform: translateY(-10px);
+    }
+    h4 {
+      text-transform: capitalize;
+      font-size: 2.5rem;
+      transform: translate(10px, -10px);
+    }
+    button {
+      position: absolute;
+      right: 6px;
+      top: 0;
+      background: none;
+      color: $color1;
+    }
+  }
+  .new-post-modal {
+    form {
+      display: grid;
+
+      textarea {
+        height: 104px;
+        font-size: 1.3rem;
+        border-radius: 10px 10px 0 10px;
+      }
+      input {
+        width: 100px;
+        margin-left: auto;
+        margin-top: 0px;
+        border-radius: 10px 0 10px 10px;
+      }
+    }
+  }
+}
+
+.posts-container {
+  max-width: 900px;
+  margin: 0 auto;
+
+  .post {
+    background: $black1;
+    margin: 18px 10px;
+    border-radius: 20px;
+    box-shadow: $shadow;
+    padding: 20px;
+    position: relative;
+    border-left: 1px solid rgb(143, 0, 0);
+
+    .title {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      h2 {
+        text-transform: capitalize;
+        font-size: 2rem;
+      }
+      span {
+        background: $color1;
+        border-radius: 150px;
+        font-size: 1.2rem;
+        margin: 0px 10px 0 0;
+        height: 30px;
+        width: 30px;
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    h5 {
+      color: $grey;
+    }
+    .right-part {
+      position: absolute;
+      top: 20px;
+      right: 12px;
+
+      i {
+        margin: 0 5px;
+        border-radius: 20px;
+        height: 20px;
+        width: 14px;
+        font-size: 0.85rem;
+        color: $color1;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          transform: translateX(1px);
+        }
+      }
+    }
+    p {
+      margin: 20px 0 10px;
+    }
+
+    .comment-title {
+      margin-top: 30px;
+    }
+    .comment-post {
+      h5 {
+        text-transform: capitalize;
+        color: rgb(202, 199, 199);
+        font-size: 1.2rem;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      margin-top: 20px;
+      margin-left: 0;
+      border-radius: 10px 10px 0 10px;
+      height: 65px;
+      background: rgb(216, 216, 216);
+    }
+    input[type="submit"] {
+      width: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: 0;
+      margin-top: -6px;
+      border-radius: 10px 0 10px 10px;
+    }
+
+    .edit-btn {
+      border-radius: 8px;
+      padding: 5px 10px;
+      margin-left: auto;
+      margin-top: -6px;
+      margin-right: 4px;
+      display: block;
+    }
+
+    .comment-container {
+      .comment-post {
+        background: $black3;
+        border-radius: 10px;
+        margin: 6px 0;
+        padding: 8px 10px;
+
+        p {
+          margin: 5px 0;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

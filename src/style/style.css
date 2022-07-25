@@ -7,7 +7,7 @@
 }
 
 body {
-  background: rgb(49, 49, 49);
+  background-color: rgb(49, 49, 49);
   color: rgb(207, 207, 207);
 }
 
@@ -236,4 +236,4 @@ textarea {
 .posts-container .post .comment-container .comment-post p {
   margin: 5px 0;
   font-size: 0.8rem;
-}/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=style.css.map */
