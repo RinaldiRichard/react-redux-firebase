@@ -1,10 +1,10 @@
- Projet perso de tchat
+# Projet perso de tchat
 
 Projet réaliser avec React permettant d'acceder à une application de tchat.
 
-Il est possible de voir les message envoyés par les autres membres mais il faudra se connecter afin de pouvoir en écrire un.
+Il est possible de voir les messages envoyés par les autres membres mais il faudra être connecté afin de pouvoir en écrire un.
 
-La fonctionnalité permettant d'etider ou supprimer un commentaire n'est pas encore implantée mais c'est en cours.
+La fonctionnalité permettant d'éditer ou supprimer un commentaire n'est pas encore implantée mais c'est en cours, de même que le responsive sur tablette / téléphone.
 
 Technologie utilisées : 
 - ReactJS
